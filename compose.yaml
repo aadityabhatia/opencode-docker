@@ -1,0 +1,16 @@
+services:
+  opencode:
+    image: ghcr.io/anomalyco/opencode:latest
+    command: web --hostname 0.0.0.0 --port 4096
+    ports:
+      - "4096:4096"
+    volumes:
+      # Bind mount for workspace directory
+      - ./workspace:/workspace
+
+      # Bind mount for provided config and agents
+      - ./opencode.jsonc:/root/.config/opencode/opencode.jsonc
+      - ./agents:/root/.config/opencode/agents
+
+      # Bind mount for persistent local storage (e.g., configuration, caching, logs)
+      - ./local:/root/.local

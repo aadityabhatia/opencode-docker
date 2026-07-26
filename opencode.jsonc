@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": true, // enable LSP for IDE integration
+  "permission": { // enable websearch and webfetch for agents
+    "websearch": "allow",
+    "webfetch": "allow"
+  },
+  "agent": { // disable built-in agents and use our own instead
+    "plan": {
+      "disable": true
+    },
+    "build": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "provider": {
+    // your custom provider configuration goes here
+    // particularly helpful to add and configure specific models
+    // as of now, opencode does not automatically detect models
+    // lookup specifics from http://endpoint/v1/models and https://models.dev/
+  },
+}
