@@ -10,25 +10,27 @@ This directory contains the following files:
 - `workspace/` - A directory containing sample project artifacts based on [a previously vibe-coded project](https://github.com/aadityabhatia/usma-class-timer). See README.md and proposal.md for more details. Replace them if you have another project in mind.
 
 > [!TIP]
-> Ask your friends with self-hosted LLMs for their configuration files.
+> Ask your friends with self-hosted LLMs for their OpenCode configuration files.
 
 ## Getting Started
 
-1. On Windows, Install WSL, Docker, and git.
-
-Verify that you have WSL 2. Run `wsl` in PowerShell as an admin to confirm.
+1. On Windows, Install Docker, git, and WSL. Docker will automatically use WSL as its backend. On any other OS, just ensure that you have `git` and `docker` available.
 
 ```sh
-wsl --version # verify; if not present, type `wsl` to install and then reboot as needed
+# install git and docker in your Windows environment, not in WSL
+winget install Git.Git Docker.DockerCLI
+
+# Verify that you have WSL 2
+wsl --version
+
+# if not present, run `wsl` in PowerShell as admin to install
+wsl
+
+# if already installed, try updating
+wsl --update
+
+# reboot if needed
 ```
-
-Install Git and Docker.
-
-```sh
-winget install Git.Git Docker.DockerCLI # install git and docker
-```
-
-On any other OS, just ensure you have git and Docker available.
 
 2. Clone this repository. Update the contents as needed.
 
@@ -53,7 +55,11 @@ To stop a running container, run `docker compose down --remove-orphans`. Check c
 
 7. Create a new session and start interacting with various agents. Select your preferred model. Add providers and models as needed. Some agents have more permissions than others. See [OpenCode permissions documentation](https://opencode.ai/docs/permissions/).
 
-See [OpenCode documentation](https://opencode.ai/docs/) for more details.
+> [!TIP]
+> Most self-hosted providers provide an OpenAI-compatible API endpoint. OpenCode allows you to add any OpenAI-compatible provider from the UI. These URLs typically end in `/v1`. To get a list of models available from your provider, open the provider URL in a browser and append `/v1/models` to the end of the URL.
+
+> [!WARNING]
+> OpenCode's default free models retain and use your data for training. Also ensure that you are authorized to use the specific models before you use them. Use the `Manage Models` setting to disable models that you do not intend to use.
 
 ## Proposed Agentic Workflow
 
