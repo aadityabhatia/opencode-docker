@@ -14,11 +14,11 @@ This directory contains the following files:
 
 ## Getting Started
 
-1. On Windows, Install Docker, git, and WSL. Docker will automatically use WSL as its backend. On any other OS, just ensure that you have `git` and `docker` available.
+1. On Windows, Install Docker, git, and WSL. Docker will automatically use WSL as its backend.
 
 ```sh
 # install git and docker in your Windows environment, not in WSL
-winget install Git.Git Docker.DockerCLI
+winget install Git.Git Docker.DockerDesktop
 
 # Verify that you have WSL 2
 wsl --version
@@ -32,6 +32,12 @@ wsl --update
 # reboot if needed
 ```
 
+After installing Docker and WSL, open Docker Desktop and start the Docker Engine. This uses WSL as a backend.
+
+> [!NOTE]
+> On any other OS, just ensure that you have `git` and `docker` available.
+
+
 2. Clone this repository. Update the contents as needed.
 
 ```sh
@@ -41,7 +47,7 @@ cd ...
 
 3. Launch OpenCode container: `docker compose up -d`
 
-To stop a running container, run `docker compose down --remove-orphans`. Check container status by running `docker compose ps` in the same directory or `docker ps` anywhere.
+To stop a detached container, run `docker compose down --remove-orphans`. Check container status by running `docker compose ps` in the same directory or `docker ps` anywhere.
 
 4. Open http://localhost:4096 in your browser
 
