@@ -38,16 +38,17 @@ After installing Docker and WSL, open Docker Desktop and start the Docker Engine
 > On any other OS, just ensure that you have `git` and `docker` available.
 
 
-2. Clone this repository. Update the contents as needed.
+2. Clone this repository. Update the configuration file as needed.
 
 ```sh
 git clone ...
 cd ...
 ```
 
-3. Launch OpenCode container: `docker compose up -d`
+3. Launch OpenCode container: `docker compose up`
 
-To stop a detached container, run `docker compose down --remove-orphans`. Check container status by running `docker compose ps` in the same directory or `docker ps` anywhere.
+> [!TIP]
+> To stop a detached container, run `docker compose down --remove-orphans`. Check container status by running `docker compose ps` in the same directory or `docker ps` anywhere.
 
 4. Open http://localhost:4096 in your browser
 
@@ -55,17 +56,18 @@ To stop a detached container, run `docker compose down --remove-orphans`. Check 
     - `Show Reasoning Summaries`
     - `Expand shell tool parts`
     - Advanced > `Show agent`
-    - Add providers if you have API keys available
 
-6. Add the project folder `/workspace` to your OpenCode instance
-
-7. Create a new session and start interacting with various agents. Select your preferred model. Add providers and models as needed. Some agents have more permissions than others. See [OpenCode permissions documentation](https://opencode.ai/docs/permissions/).
+6. Add your token providers to `opencode.jsonc`. You can also do this via the GUI later on. [Mistral](https://console.mistral.ai/) and [Poolside](https://platform.poolside.ai/) provide free access. Opt out of data collection if the provider allows.
 
 > [!TIP]
 > Most self-hosted providers provide an OpenAI-compatible API endpoint. OpenCode allows you to add any OpenAI-compatible provider from the UI. These URLs typically end in `/v1`. To get a list of models available from your provider, open the provider URL in a browser and append `/v1/models` to the end of the URL.
 
 > [!WARNING]
-> OpenCode's default free models retain and use your data for training. Also ensure that you are authorized to use the specific models before you use them. Use the `Manage Models` setting to disable models that you do not intend to use.
+> Many free models available by default in OpenCode retain and use your data for training. Also ensure that you are authorized to use the specific models beforehand. Use the `Manage Models` setting to disable models that you do not intend to use.
+
+7. Add the project folder `/workspace` to your OpenCode interface. You can also mount and use other folders as needed- see `compose.yaml`.
+
+8. Create a new session and start interacting with various agents. Select your preferred model. Add providers and models as needed. Some agents have more permissions than others. See [OpenCode permissions documentation](https://opencode.ai/docs/permissions/).
 
 ## Proposed Agentic Workflow
 
