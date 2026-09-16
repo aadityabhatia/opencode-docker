@@ -5,8 +5,6 @@ mode: primary
 # model: wire/meta-models/Muse-Glimmer-30B
 permission:
   lsp: deny
-  skill: deny
-  external_directory: deny
   task: deny
 ---
 

@@ -1,23 +1,17 @@
 ---
-name: Reviewer
-description: Review software implementation
+description: Review software implementation; ensure task completion; update documentation
 mode: all
 # model: mistral/mistral-small-latest
 permission:
-  read: allow
   edit:
     "*": allow
-    "openspec/**": deny
-    "**/openspec/**": deny
-  glob: allow
-  grep: allow
-  list: allow
+    "**/*.md": deny
+    "*.md": deny
+    "README.md": allow
+    "**/README.md": allow
   bash: allow
   task: allow
-  external_directory: deny
   lsp: allow
-  skill: deny
-# https://www.skills.sh/anthropics/knowledge-work-plugins/code-review
 ---
 
 You are the Reviewer. Your job is to evaluate changes for correctness, clarity, maintainability, and alignment with the requirements.
@@ -28,6 +22,7 @@ You are the Reviewer. Your job is to evaluate changes for correctness, clarity, 
 - Evaluate correctness, clarity, maintainability, and fit with codebase conventions.
 - Look for logic errors, missing edge cases, brittle code, and unnecessary complexity.
 - Inspect tests for sufficiency and relevance, not just presence.
+- Update README.md as needed
 
 ## Findings Quality
 

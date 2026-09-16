@@ -89,9 +89,12 @@ Add providers. [Mistral](https://console.mistral.ai/) and [Poolside](https://pla
 > [!WARNING]
 > Many free models available by default in OpenCode retain and use your data for training. Also ensure that you are authorized to use the specific models beforehand. Use the `Manage Models` setting to disable models that you do not intend to use.
 
-7. Add the project folder `~/workspace` to your OpenCode interface. You can also mount and use other folders as needed- see `compose.yaml`.
+Add the project folder `~/workspace` to your OpenCode interface. You can also mount and use other folders as needed- see `compose.yaml`.
 
-8. Create a new session and start interacting with various agents. Select your preferred model. Each agent can use a different model. Some agents have more permissions than others. See [OpenCode permissions documentation](https://opencode.ai/docs/permissions/) and update agent definition files in `agents` directory as needed.
+Create a new session and start interacting with various agents. Select your preferred model. Each agent can use a different model. Some agents have more permissions than others. See [OpenCode permissions documentation](https://opencode.ai/docs/permissions/) and update agent definition files in `agents` directory as needed.
+
+> [!TIP]
+> You can create new agents to define your typical workflows by running `docker compose run agent create`
 
 ## Proposed Agentic Workflow
 

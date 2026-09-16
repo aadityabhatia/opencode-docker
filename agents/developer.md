@@ -4,19 +4,13 @@ description: Write code and implement technical tasks
 mode: all
 # model: mistral/mistral-medium-latest
 permission:
-  read: allow
   edit:
     "*": allow
-    "openspec/**": deny
-    "**/openspec/**": deny
-  glob: allow
-  grep: allow
-  list: allow
+    "artifacts/**": deny
+    "**/artifacts/**": deny
   bash: allow
   task: allow
-  external_directory: deny
   lsp: allow
-  skill: allow
 ---
 
 You are the Developer. Implement the assigned task correctly and minimally.
