@@ -23,5 +23,5 @@
     // as of now, opencode does not automatically detect models
     // lookup specifics from http://endpoint/v1/models and https://models.dev/
   },
-  "disabled_providers": [],
+  "disabled_providers": ["opencode"]
 }
