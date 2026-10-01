@@ -1,12 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": true, // enable LSP for IDE integration
-  "formatter": true, // enable code formatting
-  "permission": { // enable websearch and webfetch for agents
-    "websearch": "allow",
-    "webfetch": "allow"
-  },
-  "agent": { // disable built-in agents and use our own instead
+  "formatter": true,
+  "subagent_depth": 2,
+  "agent": {
     "plan": {
       "disable": true
     },
@@ -15,6 +11,33 @@
     },
     "general": {
       "disable": true
+    }
+  },
+  "permission": {
+    "external_directory": "deny",
+    "skill": "deny",
+    "read": "allow",
+    "todowrite": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "doom_loop": "deny",
+    "question": "deny"
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-647a93ca-29f0-485c-8371-5a6473bfa3a1"
+      }
+    },
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp",
+      "headers": {
+        "x-api-key": "0d5d4456-3a6b-4cb2-944e-e167314c6d98"
+      }
     }
   },
   "provider": {
