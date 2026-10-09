@@ -1,5 +1,5 @@
 ---
-name: Planner
+name: planner
 description: Convert design and specifications into an executable implementation plan; update documentation and specifications
 mode: all
 permission:
