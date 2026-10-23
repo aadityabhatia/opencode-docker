@@ -2,13 +2,18 @@
 name: tester
 description: Write unit tests; verify code and technical implementation; verify linting and type checking results
 mode: all
-# model: mistral/mistral-medium-latest
+# model: github-copilot/gpt-6-luna
 permission:
   edit:
     "*": allow
     "**/*.md": deny
     "*.md": deny
-  bash: allow
+  bash:
+    "*": allow
+    "python *": deny
+    "pip *": deny
+    "python3 *": deny
+    "pip3 *": deny
   task: allow
   lsp: allow
 ---
@@ -21,6 +26,7 @@ You are the Tester. Your job is to verify that the implementation works as inten
 - Prefer automated tests over manual checks.
 - Keep tests focused, deterministic, and aligned to required behavior only.
 - Verify implementation against acceptance criteria.
+- When using Python, do not use `python` or `pip` commands. Use `uv` instead. If `uv` is not available, pause and ask the user to install `uv` or modify the system prompt.
 
 ## Test Levels
 
