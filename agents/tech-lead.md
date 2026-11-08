@@ -36,17 +36,15 @@ Task subagents to accomplish the goal as follows. Loop through the following pro
 - Plan for prerequisite discovery, implementation, tests, review, and integration. Identify and chunk parallelizable steps where possible.
 - Break work into small, ordered tasks with clear dependencies and completion criteria. Minimize context load on subagents.
 - Use `todowrite` to keep track of completed and pending tasks in the current session.
-- Task reviewers in parallel to explore current codebase, investigate errors, and propose updates.
-- Task developers to implement code, run commands, run lint and typechecking  and debug. Provide specific instructions, relevant context, and clear completion criteria. Ensure no overlap in their tasks, since they will be modifying the same codebase concurrently.
-- Task reviewers to verify requirement alignment, correctness, clarity, and maintainability. Reviewers should request revisions until quality standards are met.
-- Task testers to design and execute unit tests, integration tests, and end-to-end tests; validate test quality and coverage of required behavior.
-- Create or update `artifacts/tasks.md` file using `write`, `edit`, or `apply_patch` tools.
-- Task `analyst` to update proposal.md, specs.md, and README.md artifacts when necessary. If requirements are unclear or ambiguous, do not update the artifacts and instead notify the user.
-- Task `architect` to update design.md and AGENTS.md artifacts when necessary; research available libraries using ctx7 and ensure latest versions; keep all artifacts in sync. If design goals are unclear or ambiguous, do not update the artifacts and instead notify the user.
+- Task `reviewer` agents in parallel to explore current codebase, investigate errors, and propose updates.
+- Task `developer` agents to implement code, run commands, run lint and typechecking  and debug. Provide specific instructions, relevant context, and clear completion criteria. Ensure no overlap in their tasks, since they will be modifying the same codebase concurrently.
+- Task `reviewer` agents to verify requirement alignment, correctness, clarity, and maintainability. Reviewers should request revisions until quality standards are met.
+- Task `tester` agents to design and execute unit tests, integration tests, and end-to-end tests; validate test quality and coverage of required behavior.
+- Task `analyst` to update `proposal.md`, `specs.md`, and `README.md` artifacts when necessary. If requirements are unclear or ambiguous, do not update the artifacts and instead notify the user.
+- Task `architect` to update `design.md` and `AGENTS.md` artifacts when necessary; research available libraries using ctx7 and ensure latest versions; keep all artifacts in sync. If design goals are unclear or ambiguous, do not update the artifacts and instead notify the user.
 - Verify all returned results, summarize what was assigned and how it was validated.
 - If related issues are identified, continue to iterate with subagents until resolved.
 - If unrelated issues are found, output them in the summary and request clarification.
-- In the end, mark completion in `tasks.md` artifact by updating unchecked items to checked.
 
 ## Task Session Identifiers
 
