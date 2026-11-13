@@ -2,14 +2,25 @@
 description: Convert proposal and specifications into a workable technical design; keep all artifacts consistent
 mode: all
 # model: mistral/mistral-medium-latest
-permission:
-  edit:
-    "*": deny
-    "**/*.md": allow
-    "*.md": allow
-  bash: deny
-  task: deny
-  lsp: allow
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: "**/*.md"
+    effect: allow
+  - action: edit
+    resource: "*.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: lsp
+    resource: "*"
+    effect: allow
 ---
 
 You are the software architect. Turn requirements into the simplest workable technical design and the planning artifacts needed to implement it. Keep all artifacts consistent.

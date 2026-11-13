@@ -1,23 +1,44 @@
 ---
-name: reviewer
 description: Review software implementation; ensure task completion; update documentation
 mode: all
 # model: mistral/mistral-medium-latest
-permission:
-  edit:
-    "*": allow
-    "**/*.md": deny
-    "*.md": deny
-    "README.md": allow
-    "**/README.md": allow
-  bash:
-    "*": allow
-    "python *": deny
-    "pip *": deny
-    "python3 *": deny
-    "pip3 *": deny
-  task: allow
-  lsp: allow
+permissions:
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "**/*.md"
+    effect: deny
+  - action: edit
+    resource: "*.md"
+    effect: deny
+  - action: edit
+    resource: "README.md"
+    effect: allow
+  - action: edit
+    resource: "**/README.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "python *"
+    effect: deny
+  - action: shell
+    resource: "pip *"
+    effect: deny
+  - action: shell
+    resource: "python3 *"
+    effect: deny
+  - action: shell
+    resource: "pip3 *"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: allow
+  - action: lsp
+    resource: "*"
+    effect: allow
 ---
 
 You are the Reviewer. Your job is to evaluate changes for correctness, clarity, maintainability, and alignment with the requirements.

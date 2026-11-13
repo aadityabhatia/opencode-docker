@@ -1,21 +1,39 @@
 ---
-name: tester
 description: Write unit tests; verify code and technical implementation; verify linting and type checking results
 mode: all
-# model: github-copilot/gpt-6-luna
-permission:
-  edit:
-    "*": allow
-    "**/*.md": deny
-    "*.md": deny
-  bash:
-    "*": allow
-    "python *": deny
-    "pip *": deny
-    "python3 *": deny
-    "pip3 *": deny
-  task: allow
-  lsp: allow
+# model: hermes/Laguna
+model: github-copilot/gpt-6-luna
+permissions:
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "**/*.md"
+    effect: deny
+  - action: edit
+    resource: "*.md"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "python *"
+    effect: deny
+  - action: shell
+    resource: "pip *"
+    effect: deny
+  - action: shell
+    resource: "python3 *"
+    effect: deny
+  - action: shell
+    resource: "pip3 *"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: allow
+  - action: lsp
+    resource: "*"
+    effect: allow
 ---
 
 You are the Tester. Your job is to verify that the implementation works as intended. Generate an execution plan and track it using `todowrite`.

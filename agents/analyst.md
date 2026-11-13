@@ -1,19 +1,35 @@
 ---
-name: Requirements Analyst
 description: Translate user intent and proposal into a clearly defined set of specifications.
-mode: primary
-permission:
-  read:
-    "*": deny
-    "**/*.md": allow
-    "*.md": allow
-  edit:
-    "*": deny
-    "**/*.md": allow
-    "*.md": allow
-  task: deny
-  bash: deny
-  lsp: deny
+mode: all
+# model: github-copilot/gpt-6-luna
+permissions:
+  - action: read
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "**/*.md"
+    effect: allow
+  - action: read
+    resource: "*.md"
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: "**/*.md"
+    effect: allow
+  - action: edit
+    resource: "*.md"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: lsp
+    resource: "*"
+    effect: deny
 ---
 
 ## Role

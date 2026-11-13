@@ -1,50 +1,120 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  // "model": "",
+  "default_agent": "tech-lead",
+  // "update": "disable",
+  // "username": "Pikachu",
+  "policies": [
+    {
+      "action": "provider.use",
+      "resource": "opencode",
+      "effect": "deny"
+    },
+    {
+      "action": "provider.use",
+      "resource": "huggingface",
+      "effect": "deny"
+    },
+    {
+      "action": "skill.use",
+      "resource": "*",
+      "effect": "deny"
+    }
+  ],
   "formatter": true,
-  "subagent_depth": 2,
-  "agent": {
+  "websearch": {
+    "provider": "exa"
+  },
+  "experimental": {
+    "subagent_depth": 2,
+    "todo": true,
+  },
+  "agents": {
     "plan": {
-      "disable": true
+      "disabled": true
     },
     "build": {
-      "disable": true
+      "disabled": true
     },
     "general": {
-      "disable": true
-    }
-  },
-  "permission": {
-    "external_directory": "deny",
-    "skill": "deny",
-    "read": "allow",
-    "todowrite": "allow",
-    "glob": "allow",
-    "grep": "allow",
-    "list": "allow",
-    "doom_loop": "deny",
-    "question": "deny"
-  },
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "ctx7sk-647a93ca-29f0-485c-8371-5a6473bfa3a1"
-      }
+      "disabled": true
     },
-    "exa": {
-      "type": "remote",
-      "url": "https://mcp.exa.ai/mcp",
-      "headers": {
-        "x-api-key": "0d5d4456-3a6b-4cb2-944e-e167314c6d98"
-      }
+    "explore": {
+      "disabled": true
+    },
+    "title": {
+      // "model": ""
     }
   },
-  "provider": {
+  "permissions": [
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "todowrite",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "glob",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "grep",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "list",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "doom_loop",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "question",
+      "resource": "*",
+      "effect": "deny"
+    }
+  ],
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        }
+      },
+      "exa": {
+        "type": "remote",
+        "url": "https://mcp.exa.ai/mcp",
+        "headers": {
+          "x-api-key": "{env:EXA_API_KEY}"
+        }
+      },
+    }
+  },
+  "providers": {
     // your custom provider configuration goes here
     // particularly helpful to add and configure specific models
     // as of now, opencode does not automatically detect models
     // lookup specifics from http://endpoint/v1/models and https://models.dev/
   },
-  "disabled_providers": ["opencode"]
 }

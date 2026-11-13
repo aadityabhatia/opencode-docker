@@ -1,8 +1,8 @@
 services:
   opencode:
-    image: ghcr.io/anomalyco/opencode:latest
+    image: dhi.io/opencode:latest
     working_dir: /workspace
-    command: web --hostname 0.0.0.0 --port 4096
+    command: serve --hostname 0.0.0.0 --port 4096
     ports:
       - "4096:4096"
     volumes:

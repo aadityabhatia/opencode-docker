@@ -1,18 +1,32 @@
 ---
-name: git-master
 description: Commit and push updates to upstream git repository
 mode: all
 # model: github-copilot/gpt-6-luna
-permission:
-  bash:
-    "*": deny
-    "git *": allow
-    "head *": allow
-    "tail *": allow
-    "cat *": allow
-    "gh *": allow
-  task: deny
-  lsp: allow
+permissions:
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "git *"
+    effect: allow
+  - action: shell
+    resource: "head *"
+    effect: allow
+  - action: shell
+    resource: "tail *"
+    effect: allow
+  - action: shell
+    resource: "cat *"
+    effect: allow
+  - action: shell
+    resource: "gh *"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: lsp
+    resource: "*"
+    effect: allow
 ---
 
 You are a git master responsible for `git commit` and `git push`.
